@@ -1,0 +1,16 @@
+station_name: Union Square-14th Street
+status: dummy
+
+platforms:
+  "2":
+    uptown:
+      door_side: right
+      exits:
+        broadway: 1.1
+        park_avenue_south: 2.1
+    downtown:
+      door_side: left
+      exits:
+        broadway: 1.2
+        park_avenue_south: 2.2
+

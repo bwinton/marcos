@@ -1,0 +1,27 @@
+- "1"
+- "2"
+- "3"
+- "4"
+- "5"
+- "6"
+- "7"
+- "A"
+- "B"
+- "C"
+- "D"
+- "E"
+- "F"
+- "G"
+- "J"
+- "L"
+- "M"
+- "N"
+- "Q"
+- "R"
+- "W"
+- "Z"
+# shuttle services
+- "S" # generic shuttle designation in GTFS
+- "S42" # 42nd Street Shuttle (often encoded as S or specific shape variants)
+- "SFA" # Franklin Avenue Shuttle
+- "SRP" # Rockaway Park Shuttle

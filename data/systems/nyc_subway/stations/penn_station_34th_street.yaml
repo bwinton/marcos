@@ -1,0 +1,16 @@
+station_name: 34th Street-Penn Station
+status: dummy
+
+platforms:
+  "1":
+    uptown:
+      door_side: right
+      exits:
+        seventh_avenue: 2.1
+        eighth_avenue: 3.1
+    downtown:
+      door_side: left
+      exits:
+        seventh_avenue: 2.2
+        eighth_avenue: 3.2
+

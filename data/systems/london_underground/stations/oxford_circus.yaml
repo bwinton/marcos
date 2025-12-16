@@ -1,0 +1,16 @@
+station_name: Oxford Circus
+status: dummy
+
+platforms:
+  bakerloo:
+    northbound:
+      door_side: right
+      exits:
+        regent_street: 3.1
+        oxford_street: 2.2
+    southbound:
+      door_side: left
+      exits:
+        regent_street: 4.1
+        oxford_street: 3.2
+

@@ -1,0 +1,16 @@
+station_name: Paddington
+status: dummy
+
+platforms:
+  bakerloo:
+    northbound:
+      door_side: right
+      exits:
+        main_entrance: 1.1
+        praed_street: 2.1
+    southbound:
+      door_side: left
+      exits:
+        main_entrance: 1.2
+        praed_street: 2.2
+

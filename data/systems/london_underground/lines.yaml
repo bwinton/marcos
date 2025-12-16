@@ -1,0 +1,22 @@
+- id: bakerloo
+  name: Bakerloo Line
+- id: central
+  name: Central Line
+- id: circle
+  name: Circle Line
+- id: district
+  name: District Line
+- id: hammersmith_city
+  name: Hammersmith & City Line
+- id: jubilee
+  name: Jubilee Line
+- id: metropolitan
+  name: Metropolitan Line
+- id: northern
+  name: Northern Line
+- id: piccadilly
+  name: Piccadilly Line
+- id: victoria
+  name: Victoria Line
+- id: waterloo_city
+  name: Waterloo & City Line

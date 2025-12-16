@@ -1,0 +1,16 @@
+station_name: Bond Street
+status: dummy
+
+platforms:
+  central:
+    eastbound:
+      door_side: right
+      exits:
+        oxford_street: 2.1
+        davies_street: 3.2
+    westbound:
+      door_side: left
+      exits:
+        oxford_street: 2.2
+        davies_street: 3.1
+

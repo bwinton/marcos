@@ -1,0 +1,16 @@
+station_name: Times Square-42nd Street
+status: dummy
+
+platforms:
+  "1":
+    uptown:
+      door_side: right
+      exits:
+        broadway: 3.1
+        seventh_avenue: 4.2
+    downtown:
+      door_side: left
+      exits:
+        broadway: 3.2
+        seventh_avenue: 4.1
+

@@ -1,0 +1,16 @@
+station_name: Marble Arch
+status: dummy
+
+platforms:
+  central:
+    eastbound:
+      door_side: right
+      exits:
+        oxford_street: 1.1
+        park_lane: 2.1
+    westbound:
+      door_side: left
+      exits:
+        oxford_street: 1.2
+        park_lane: 2.2
+

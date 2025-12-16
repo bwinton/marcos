@@ -1,0 +1,23 @@
+station_name: Tottenham Court Road
+status: dummy
+
+platforms:
+  central:
+    eastbound:
+      door_side: right
+      exits:
+        northern: 4.2
+        oxford_street_east: 1.2
+    westbound:
+
+  northern:
+    southbound:
+      door_side: right
+      exits:
+        central: 1.3
+        street: 6.3
+    northbound:
+      door_side: right
+      exits:
+        central:eastbound: 1.3
+        street: 6.3

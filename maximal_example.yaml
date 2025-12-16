@@ -1,0 +1,226 @@
+# Station file: data/systems/london_underground/stations/tottenham_court_road.yaml
+
+# consider: utility of knowing which door you are nearest when you come IN to an entrance
+
+version: 1
+last_updated: "2025-12-09T12:00:00Z"
+created_by: "@marcos" # first creator / maintainer handle
+
+city_id: london
+city_name: London
+country: GB
+timezone: Europe/London
+
+system_id: london_underground
+system_name: London Underground
+
+station_id: tottenham_court_road
+station_name: Tottenham Court Road
+
+# Optional high-level metadata
+external_ids:
+  tfl_station_code: "TCR"
+  # gtfs_stop_id: "TCR"           # iff GTFS exists
+  # osm_relation_id: 1234567
+  # other_agency_id: "..."
+
+location:
+  lat: 51.5163 # example, can be approximate
+  lon: -0.1319
+
+tags:
+  - interchange
+  - busy
+  - central_london
+
+notes: >
+  Interchange between Central and Northern lines. Very heavy footfall,
+  complex passageways, multiple surface exits.
+
+# Optional list of exits in this station (for destination_label consistency later)
+exits:
+  - exit_id: oxford_street_east
+    label: Oxford Street (East) – Centre Point
+    description: "East side of Tottenham Court Road, near Centre Point."
+    # lat: 51.5165
+    # lon: -0.1309
+  - exit_id: oxford_street_west
+    label: Oxford Street (West) – Oxford Street / Soho
+    description: "Western end of station, closer to Soho."
+  - exit_id: charing_cross_road_south
+    label: Charing Cross Road (South)
+    description: "Good for theatres and Leicester Square area."
+
+# System-level line IDs should be defined in london_underground/lines.yaml,
+# but we duplicate minimal info here for readability.
+lines:
+  - line_id: central
+    line_name: Central
+    line_colour: "#DC241F"
+  - line_id: northern
+    line_name: Northern
+    line_colour: "#000000"
+    branches:
+      - charing_cross
+
+# Platforms are the main unit:
+# each has door_side, served lines+directions, and recommendations.
+platforms:
+  - platform_id: central_eastbound
+    platform_label: "Central line – Eastbound"
+    level: deep
+    door_side: right # relative to direction of travel
+    length_m: 134 # optional
+    accessibility:
+      step_free: false
+      notes: "Stairs and escalators only from this platform."
+
+    lines_served:
+      - line_id: central
+        direction: eastbound
+        # branch: main               # optional
+        # headsign_examples: ["Liverpool Street", "Epping"]
+
+    entrances_nearby: # station exits closest to this platform
+      - exit_id: oxford_street_east
+
+    recommendations:
+      # 1) Best carriage for transfer: Central eastbound -> Northern southbound
+      - destination_type: line_transfer
+        destination_label: "Northern line (southbound)"
+        destination_line_id: northern
+        destination_direction: southbound
+
+        car_hint_type: index_from_front
+        car_index: 3 # 1-based index
+        door_hint: "Any door on that car"
+        door_side_override: null # or "left"/"right" if special
+
+        confidence: 0.8
+        sample_count: 15
+        upvotes: 14
+        downvotes: 1
+
+        valid_times: all_day # or "peak_only", "off_peak_only"
+        weekdays_only: false
+        weekends_only: false
+
+        accessibility_note: >
+          Involves several sets of stairs and long corridors. Not ideal with luggage.
+
+        notes: >
+          This position drops you roughly in line with the main passageway towards
+          the Northern line southbound platforms. Good balance of walking distance
+          and crowd avoidance.
+
+        sources:
+          - type: user_report
+            handle: "@alice"
+          - type: user_report
+            handle: "@bob"
+          - type: field_survey
+            handle: "@marcos"
+
+      # 2) Best carriage for Oxford Street (East) exit
+      - destination_type: exit
+        destination_label: "Oxford Street (East) – Centre Point"
+        destination_exit_id: oxford_street_east
+
+        car_hint_type: segment
+        car_segment: front # front/middle/back
+        door_hint: "Front two cars"
+
+        confidence: 0.7
+        sample_count: 8
+        upvotes: 7
+        downvotes: 1
+
+        valid_times: all_day
+        weekdays_only: false
+        weekends_only: false
+
+        notes: >
+          Good for quick escape to Centre Point and east Oxford Street,
+          particularly in the morning rush when the middle of the train is rammed.
+
+        sources:
+          - type: user_report
+            handle: "@charlie"
+
+  - platform_id: central_westbound
+    platform_label: "Central line – Westbound"
+    level: deep
+    door_side: left
+    accessibility:
+      step_free: false
+    lines_served:
+      - line_id: central
+        direction: westbound
+
+    recommendations: [] # none yet
+
+  - platform_id: northern_northbound
+    platform_label: "Northern line – Northbound (Charing Cross branch)"
+    level: deep
+    door_side: left
+    accessibility:
+      step_free: false
+    lines_served:
+      - line_id: northern
+        direction: northbound
+        branch: charing_cross
+
+    recommendations:
+      - destination_type: exit
+        destination_label: "Oxford Street (West) – Soho side"
+        destination_exit_id: oxford_street_west
+
+        car_hint_type: segment
+        car_segment: middle
+        door_hint: "Middle of the train"
+
+        confidence: 0.65
+        sample_count: 5
+        upvotes: 5
+        downvotes: 0
+
+        notes: >
+          Puts you near the escalators leading to the western Oxford Street exits,
+          handy for Soho and Tottenham Court Road north of the junction.
+
+        sources:
+          - type: user_report
+            handle: "@dana"
+
+  - platform_id: northern_southbound
+    platform_label: "Northern line – Southbound (Charing Cross branch)"
+    level: deep
+    door_side: right
+    accessibility:
+      step_free: false
+    lines_served:
+      - line_id: northern
+        direction: southbound
+        branch: charing_cross
+
+    recommendations:
+      - destination_type: exit
+        destination_label: "Charing Cross Road (South)"
+        destination_exit_id: charing_cross_road_south
+
+        car_hint_type: index_from_back
+        car_index: 2
+        door_hint: "Second car from the rear"
+
+        confidence: 0.6
+        sample_count: 6
+        upvotes: 5
+        downvotes: 1
+
+        notes: >
+          Good for theatres and Chinatown area: aligns closely with the passages
+          towards the southern Charing Cross Road exits.
+
+        sources:
+          - type: user_report
+            handle: "@eve"
