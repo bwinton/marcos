@@ -190,7 +190,7 @@ export default function Home() {
               />
             </div>
             <h1
-              className="text-3xl font-bold mb-2"
+              className="text-3xl tracking-tighter font-bold mb-2"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               {formatTitle("Metro And Rail Carriage Optimization System")}

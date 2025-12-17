@@ -1,14 +1,17 @@
 station_name: Tottenham Court Road
-status: dummy
 
 platforms:
   central:
     eastbound:
       door_side: right
       exits:
-        northern: 4.2
+        northern: 4.2 # To get to the Northern line, stand at the 4th carriage, 2nd door
         oxford_street_east: 1.2
     westbound:
+      door_side: left
+      exits:
+        northern: 1.2
+        oxford_street_east: 1.5
 
   northern:
     southbound:
